@@ -28,24 +28,20 @@ const typeDefs = `
         wand: Wand
     }
 
-    type non_human implements Character {
+    type NonHuman implements Character {
       id:ID!
       name: String
       gender: GENDER
       species: String
   }
 
-  type Book {
-    title: String
-    author: String
-  }
-
   type Query {
-    books: [Book]
     human: [Human!]!
-    animal : [non_human!]!
+    nonHuman : [NonHuman!]!
+    character: [Character!]!
   }
 `;
 
 // module.exports = typeDefs;
 export default typeDefs;
+
