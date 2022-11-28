@@ -12,7 +12,13 @@ const typeDefs = `
         female
     }
 
-    type Character{
+    interface Character{
+        id:ID!
+        name: String
+        gender: GENDER
+    }
+
+    type Human implements Character {
         id:ID!
         name: String
         gender: GENDER
@@ -22,6 +28,13 @@ const typeDefs = `
         wand: Wand
     }
 
+    type non_human implements Character {
+      id:ID!
+      name: String
+      gender: GENDER
+      species: String
+  }
+
   type Book {
     title: String
     author: String
@@ -29,7 +42,8 @@ const typeDefs = `
 
   type Query {
     books: [Book]
-    all_data: [Character]
+    human: [Human!]!
+    animal : [non_human!]!
   }
 `;
 
